@@ -16,7 +16,7 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
-import { Menu, Phone } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -58,14 +58,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-black/95 backdrop-blur supports-[backdrop-filter]:bg-black/80">
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="font-bold text-xl text-white">
-          {/* <Image
-            src="/Logo.svg"
-            alt="IRIS BROADWAY"
-            width={225}
-            height={225}
-            // className="w-full h-full"
-          /> */}
-          IRIS BROADWAY GURUGRAM
+          <Image src="/Logo.svg" alt="IRIS BROADWAY" width={160} height={160} />
         </Link>
 
         {/* Desktop Navigation */}
@@ -115,18 +108,6 @@ export default function Header() {
               ))}
             </NavigationMenuList>
           </NavigationMenu>
-
-          <Button
-            variant="outline"
-            size="sm"
-            className="hidden md:flex bg-white/10 border-white/20 text-white hover:text-white hover:bg-white/10"
-            asChild
-          >
-            <Link href="#hero">
-              <Phone className="mr-2 h-4 w-4" />
-              Contact Us
-            </Link>
-          </Button>
         </div>
 
         {/* Mobile Navigation */}
@@ -185,14 +166,6 @@ export default function Header() {
                   )}
                 </div>
               ))}
-              <Button
-                className="w-full mt-8 text-white hover:text-white bg-white/10 hover:bg-white/10 border-white/20"
-                variant="outline"
-                size="lg"
-              >
-                <Phone className="mr-2 h-5 w-5" />
-                Contact Us
-              </Button>
             </nav>
           </SheetContent>
         </Sheet>
