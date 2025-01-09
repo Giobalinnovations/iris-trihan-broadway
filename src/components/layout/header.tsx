@@ -57,14 +57,15 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-black/95 backdrop-blur supports-[backdrop-filter]:bg-black/80">
       <div className="container flex h-16 items-center justify-between">
-        <Link href="/" className="font-bold text-xl">
-          <Image
+        <Link href="/" className="font-bold text-xl text-white">
+          {/* <Image
             src="/Logo.svg"
             alt="IRIS BROADWAY"
             width={225}
             height={225}
             // className="w-full h-full"
-          />
+          /> */}
+          IRIS BROADWAY GURUGRAM
         </Link>
 
         {/* Desktop Navigation */}
