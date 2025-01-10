@@ -131,7 +131,7 @@ const Hero: React.FC<HeroProps> = ({
               className="w-full lg:w-1/2 max-w-md"
             >
               <div className="bg-white/95 backdrop-blur-sm rounded-xl p-6 md:p-8 shadow-lg">
-                <h2 className="text-2xl font-semibold text-gray-800 mb-6">
+                <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">
                   Enquire Now for Amazing Deals!
                 </h2>
                 <ContactForm />
