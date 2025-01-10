@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -53,12 +53,36 @@ const navigationItems: {
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-black/95 backdrop-blur supports-[backdrop-filter]:bg-black/80">
+    <header
+      className={`fixed top-0 z-50 w-full border-b border-border/40 transition-all duration-300 ${
+        isScrolled
+          ? 'bg-black/95 backdrop-blur supports-[backdrop-filter]:bg-black/80'
+          : 'bg-transparent border-transparent'
+      }`}
+    >
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="font-bold text-xl text-white">
-          <Image src="/Logo.svg" alt="IRIS BROADWAY" width={160} height={160} />
+          <Image
+            src="/Logo.svg"
+            alt="IRIS BROADWAY"
+            width={160}
+            height={160}
+            className={`transition-opacity duration-300 ${
+              isScrolled ? 'opacity-100' : 'opacity-90'
+            }`}
+          />
         </Link>
 
         {/* Desktop Navigation */}
@@ -69,7 +93,11 @@ export default function Header() {
                 <NavigationMenuItem key={item.title}>
                   {item.items ? (
                     <>
-                      <NavigationMenuTrigger className="text-white">
+                      <NavigationMenuTrigger
+                        className={`text-white transition-colors ${
+                          isScrolled ? 'hover:bg-white/10' : 'hover:bg-black/20'
+                        }`}
+                      >
                         {item.title}
                       </NavigationMenuTrigger>
                       <NavigationMenuContent>
@@ -98,7 +126,9 @@ export default function Header() {
                     <NavigationMenuLink asChild>
                       <a
                         href={item.href}
-                        className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium transition-colors hover:bg-white/10 hover:text-white focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 text-white"
+                        className={`group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium transition-colors focus:outline-none disabled:pointer-events-none disabled:opacity-50 text-white ${
+                          isScrolled ? 'hover:bg-white/10' : 'hover:bg-black/20'
+                        }`}
                       >
                         {item.title}
                       </a>
@@ -116,7 +146,9 @@ export default function Header() {
             <Button
               variant="ghost"
               size="icon"
-              className="text-white hover:bg-white/10"
+              className={`text-white transition-colors ${
+                isScrolled ? 'hover:bg-white/10' : 'hover:bg-black/20'
+              }`}
             >
               <Menu className="h-6 w-6" />
             </Button>
@@ -125,6 +157,7 @@ export default function Header() {
             side="right"
             className="w-[300px] sm:w-[400px] bg-black/95 border-border/40"
           >
+            {/* Rest of the mobile menu content remains unchanged */}
             <SheetTitle className="text-white">
               <Image
                 src="/Logo.svg"
