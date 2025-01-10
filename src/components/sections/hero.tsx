@@ -132,7 +132,7 @@ const Hero: React.FC<HeroProps> = ({
             >
               <div className="bg-white/95 backdrop-blur-sm rounded-xl p-6 md:p-8 shadow-lg">
                 <h2 className="text-2xl font-semibold text-gray-800 mb-6">
-                  Register Your Interest
+                  Enquire Now for Amazing Deals!
                 </h2>
                 <ContactForm />
               </div>
