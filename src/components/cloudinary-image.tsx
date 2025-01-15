@@ -16,6 +16,9 @@ type CloudinaryImageProps = {
   quality?: number;
   objectFit?: 'contain' | 'cover' | 'fill' | 'none' | 'scale-down';
   opacity?: number;
+  remove?: {
+    prompt: string;
+  };
 };
 
 export default function CloudinaryImage({
@@ -31,6 +34,7 @@ export default function CloudinaryImage({
   quality = 80,
   objectFit = 'cover',
   opacity = 100,
+  remove,
 }: CloudinaryImageProps) {
   return (
     <CldImage
@@ -46,6 +50,7 @@ export default function CloudinaryImage({
       format="webp"
       priority={priority}
       opacity={opacity}
+      remove={remove}
     />
   );
 }

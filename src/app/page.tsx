@@ -1,6 +1,5 @@
 import Hero from '@/components/sections/hero';
 import ScrollToTop from '@/components/scroll-to-top';
-import AboutUs from '@/components/sections/about-us';
 import EpicentreSection from '@/components/sections/EpicentreSection';
 import Location from '@/components/sections/location';
 import dynamic from 'next/dynamic';
@@ -52,11 +51,10 @@ export default function Home() {
         projectName="Iris Broadway"
         location="Sector 85-86, Gurugram"
         price="Starting from ₹70 Lakhs*"
-        heroImage="TREHANIRISBROADWA_dxdc4w"
+        heroImage="iris-broadway-3d_dtrz4r"
         usps={usps}
         showBrochureCTA={false}
       />
-      <AboutUs />
       <EpicentreSection />
       <FloorPlansGallery />
       <Location />
